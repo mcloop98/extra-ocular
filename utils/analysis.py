@@ -5,14 +5,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 from scipy.ndimage import gaussian_filter
+import gspread
+from google.oauth2.service_account import Credentials
 
 def display_analysis_section():
     st.markdown("<h2 style='color:white;'>Analysis Section</h2>", unsafe_allow_html=True)
 
-    sheet_url = "https://docs.google.com/spreadsheets/d/1kcfzQ-EHycjFY9JNDRvRgKYPXzoNsb-Ie0qyb709SAs/edit?gid=1207839309#gid=1207839309"
-    try:
-        df = pd.read_csv(sheet_url, header=0)
+    # Google Sheets setup
+    scope = ["https://www.googleapis.com/auth/spreadsheets"]
+    credentials = Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"], scopes=scope
+    )
+    client = gspread.authorize(credentials)
+    sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1kcfzQ-EHycjFY9JNDRvRgKYPXzoNsb-Ie0qyb709SAs/edit")
+    worksheet = sheet.worksheet("Extraocular")
+    data = worksheet.get_all_records()
+    df = pd.DataFrame(data)
 
+    try:
         if not df.empty and "X coordinate" in df.columns and "Y coordinate" in df.columns:
             x_coords = df["X coordinate"].astype(float)
             y_coords = df["Y coordinate"].astype(float)
