@@ -6,7 +6,7 @@ from google.oauth2.service_account import Credentials
 
 
 def display_canvas_section():
-    st.markdown("<h3 style='color:white;'>Example: Which letter is closest to the location of the dissection flap?</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color:white;'>Example: Which vascular structure is compromised?</h3>", unsafe_allow_html=True)
 
     # Load the image
     img = Image.open("example.png")
@@ -41,7 +41,7 @@ def display_canvas_section():
     cols = st.columns(len(button_positions))
     for idx, (letter, (x, y)) in enumerate(button_positions.items()):
         if cols[idx].button(letter):
-            status = "Correct" if letter == "C" else "Incorrect"
+            status = "Correct" if letter == "G" else "Incorrect"
             timestamp = datetime.now().isoformat()
             case = "Case 1"
             worksheet.append_row([x, y, status, timestamp, case, letter])

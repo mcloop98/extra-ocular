@@ -7,8 +7,8 @@ from utils.analysis import display_analysis_section
 import utils
 
 st.set_page_config(
-    page_title="Neurovascular Emergencies in Pediatrics",
-    page_icon="🧰",
+    page_title="Diagnosis of extraocular muscle (EOM) pathologies: An Imaging Guide - Causes, Key Imaging Findings, and Pitfalls",
+    page_icon="👀",
     layout="centered"
 )
 
@@ -27,6 +27,6 @@ if st.session_state.view_analysis:
     display_analysis_section()
 else:
     st.markdown('''
-    <div class="subtitle-text">First step: Can you see the dissection flap?</div>
+    <div class="subtitle-text">First step: Acute painful proptosis?</div>
     ''', unsafe_allow_html=True)
     display_canvas_section()
