@@ -91,7 +91,7 @@ def render_header():
     <img src="{encoded_imgs[0]}">
     <img src="{encoded_imgs[1]}">
 </div>
-<div class="title-text">Small Arteries, Big Challenges:<br>Neurovascular Emergencies in Pediatrics</div>
+<div class="title-text">Diagnosis of extraocular muscle (EOM) pathologies: An Imaging Guide - Causes, Key Imaging Findings, and Pitfalls</div>
 ''', unsafe_allow_html=True)
 
     col1, col2 = st.columns([1, 1])

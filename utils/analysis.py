@@ -9,7 +9,7 @@ from scipy.ndimage import gaussian_filter
 def display_analysis_section():
     st.markdown("<h2 style='color:white;'>Analysis Section</h2>", unsafe_allow_html=True)
 
-    sheet_url = "https://docs.google.com/spreadsheets/d/1kcfzQ-EHycjFY9JNDRvRgKYPXzoNsb-Ie0qyb709SAs/export?format=csv"
+    sheet_url = "https://docs.google.com/spreadsheets/d/1kcfzQ-EHycjFY9JNDRvRgKYPXzoNsb-Ie0qyb709SAs/edit?gid=1207839309#gid=1207839309"
     try:
         df = pd.read_csv(sheet_url, header=0)
 
